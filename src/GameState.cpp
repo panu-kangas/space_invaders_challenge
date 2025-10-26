@@ -7,7 +7,7 @@ GameState::GameState(Game* gamePtr) :
 	IGameState(gamePtr),
 	m_player(gamePtr, m_enemies, ScreenWidth / 2, ScreenHeight - 30.f),
 	m_scoreHandler(gamePtr),
-	m_spawner(m_enemies)
+	m_spawner(m_enemies, gamePtr->getEnemyText())
 {
 //	initEnemies();
 }

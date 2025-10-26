@@ -55,8 +55,8 @@ void Player::update(float dt, sf::RenderWindow& window)
 
     if (m_shape.getPosition().x < 0)
         m_shape.setPosition({0, m_shape.getPosition().y});
-    if (m_shape.getPosition().x + m_shape.getSize().x > window.getSize().x)
-        m_shape.setPosition({window.getSize().x - m_shape.getSize().x, m_shape.getPosition().y});
+    if (m_shape.getPosition().x + m_shape.getSize().x > ScreenWidth)
+        m_shape.setPosition({ScreenWidth - m_shape.getSize().x, m_shape.getPosition().y});
 
     m_timeSinceLastShot += dt;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && m_timeSinceLastShot >= m_shootCooldown) {

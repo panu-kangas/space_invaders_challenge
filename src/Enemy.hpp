@@ -7,7 +7,7 @@ class Enemy {
 
 public:
 
-	Enemy(float x, float y);
+	Enemy(float x, float y, sf::Texture& enemyText);
 
 	bool update(float dt);
 	void draw(sf::RenderWindow& window);

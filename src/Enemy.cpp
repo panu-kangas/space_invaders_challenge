@@ -1,10 +1,11 @@
 #include "Enemy.hpp"
 
-Enemy::Enemy(float x, float y)
+Enemy::Enemy(float x, float y, sf::Texture& enemyText)
 {
-	m_shape.setSize(sf::Vector2f(40.0f, 20.0f));
+	m_shape.setSize(sf::Vector2f(50.0f, 50.0f));
 	m_shape.setFillColor(sf::Color::Red);
 	m_shape.setPosition({x, y});
+	m_shape.setTexture(&enemyText);
 }
 
 bool Enemy::update(float dt) 

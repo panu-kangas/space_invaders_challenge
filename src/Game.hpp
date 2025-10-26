@@ -29,6 +29,7 @@ public:
 
 	sf::Font& getMainFont() { return m_mainFont; };
 	sf::RenderWindow& getGameWindow() { return m_window; };
+	sf::Texture& getEnemyText() { return m_alienTexture; };
 
 private:
 
@@ -39,6 +40,10 @@ private:
     std::unique_ptr<IGameState> m_curStatePtr;
 	eGameState m_state{START};
 	
-	ControlBox m_controlBox;
+//	ControlBox m_controlBox;
+
+	sf::Texture m_alienTexture;
+	sf::Texture m_bgTexture;
+	sf::RectangleShape m_bgShape;
 
 };

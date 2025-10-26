@@ -8,16 +8,28 @@
 #include <iostream>
 
 Game::Game() :
-	m_window(sf::VideoMode({ScreenWidth, ScreenHeight}), "Space Invaders - game by Panu Kangas"),
-	m_controlBox(this)
+	m_window(sf::VideoMode({ScreenWidth, ScreenHeight}), "Space Invaders - game by Panu Kangas")
 {
 	if (!m_mainFont.openFromFile("assets/mainFont.ttf"))
 	{
 		std::cout << "Font download failed!\nExiting program...\n";
 		exit(1);
 	}
+	if (!m_alienTexture.loadFromFile("assets/alien.png"))
+	{
+		std::cout << "Alien download failed!\nExiting program...\n";
+		exit(1);
+	}
+	if (!m_bgTexture.loadFromFile("assets/background.png"))
+	{
+		std::cout << "Alien download failed!\nExiting program...\n";
+		exit(1);
+	}
 
 	m_curStatePtr = std::make_unique<StartState>(this);
+
+	m_bgShape.setSize({ScreenWidth, ScreenHeight});
+	m_bgShape.setTexture(&m_bgTexture);
 }
 
 void Game::run()
@@ -87,6 +99,8 @@ void Game::update()
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
+
+	m_window.draw(m_bgShape);
 
 	m_curStatePtr->render(m_window);
 

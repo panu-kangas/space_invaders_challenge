@@ -17,10 +17,10 @@ const float EnemySpawnCooldownStart = 1.5f;
 const float EnemyWinY = ScreenHeight - EnemyHeight;
 
 const float SpeedAbilityEffect = 300.f;
-const float SpeedAbilityCooldown = 6.0f;
+const float SpeedAbilityCooldown = 5.0f;
 const float SpeedAbilityEffectTime = 3.0f;
 
-const float PowerShotAbilityCooldown = 4.0f;
+const float PowerShotAbilityCooldown = 3.0f;
 const float PowerShotAbilityEffectTime = 2.0f;
 
 const float CooldownBarLength = 130.f;
