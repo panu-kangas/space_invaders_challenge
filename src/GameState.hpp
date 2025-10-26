@@ -4,6 +4,7 @@
 #include "Constants.hpp"
 #include "Player.hpp"
 #include "ScoreHandler.hpp"
+#include "EnemySpawner.hpp"
 
 class Enemy;
 class Game;
@@ -25,13 +26,14 @@ public:
 
 private:
 
-	void initEnemies();
-	void moveEnemies(float dt);
+//	void initEnemies();
+//	void moveEnemies(float dt);
 	void removeDestroyedObj();
 
 	std::vector<Enemy> m_enemies;
 	Player m_player;
 	ScoreHandler m_scoreHandler;
+	EnemySpawner m_spawner;
 
 	float m_enemyDir = EnemyStartDirection;
 	float m_enemyDownOffset = EnemyDownMoveOffset;

@@ -26,5 +26,9 @@ void StartState::render(sf::RenderWindow& window)
 	if (m_isReady)
 		return ;
 
-	drawHeaderText(m_gamePtr->getMainFont(), window, "Space Invaders");
+	sf::Font font = m_gamePtr->getMainFont();
+	drawHeaderText(font, window, "Space Invaders");
+	drawCenteredText(font, window, "Use your spaceship to shoot aliens!");
+	drawCenteredText(font, window, "Move using arrow keys, shoot with Space.", 50.f);
+	drawLowText(font, window, "Press Enter to start");
 }

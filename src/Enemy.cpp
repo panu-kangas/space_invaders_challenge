@@ -2,25 +2,29 @@
 
 Enemy::Enemy(float x, float y)
 {
-	shape.setSize(sf::Vector2f(40.0f, 20.0f));
-	shape.setFillColor(sf::Color::Red);
-	shape.setPosition({x, y});
+	m_shape.setSize(sf::Vector2f(40.0f, 20.0f));
+	m_shape.setFillColor(sf::Color::Red);
+	m_shape.setPosition({x, y});
 }
 
-void Enemy::update(float dt) 
+bool Enemy::update(float dt) 
 {
 	if (m_isDead)
-		return ;
+		return false;
 	
-	sf::Vector2f direction {m_speed, 0};
-	shape.move(direction * dt);
-}
+	sf::Vector2f direction {0, m_speed};
+	m_shape.move(direction * dt);
 
+	if (m_shape.getPosition().y >= EnemyWinY)
+		return true;
+
+	return false;
+}
 
 void Enemy::draw(sf::RenderWindow& window) 
 {
 	if (m_isDead)
 		return ;
 
-	window.draw(shape);
+	window.draw(m_shape);
 }

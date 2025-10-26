@@ -6,11 +6,13 @@
 GameState::GameState(Game* gamePtr) : 
 	IGameState(gamePtr),
 	m_player(gamePtr, m_enemies, ScreenWidth / 2, ScreenHeight - 30.f),
-	m_scoreHandler(gamePtr)
+	m_scoreHandler(gamePtr),
+	m_spawner(m_enemies)
 {
-	initEnemies();
+//	initEnemies();
 }
 
+/*
 void GameState::initEnemies()
 {
 	for (int row = 0; row < 4; ++row) {
@@ -20,7 +22,8 @@ void GameState::initEnemies()
 			m_enemies.emplace_back(x, y);
 		}
 	}
-}
+} 
+*/
 
 void GameState::removeDestroyedObj()
 {
@@ -52,6 +55,7 @@ void GameState::removeDestroyedObj()
 	}
 }
 
+/*
 void GameState::moveEnemies(float dt)
 {
 	bool changeDirection = false;
@@ -76,19 +80,23 @@ void GameState::moveEnemies(float dt)
 		}
 	}
 }
+*/
 
 void GameState::update(float dt)
 {
 	if (m_isReady)
 		return ;
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::P))
+
+	m_spawner.update();
+	m_player.update(dt, m_gamePtr->getGameWindow());
+
+	for (auto& enemy : m_enemies)
 	{
-		m_isReady = true;
-		return ;
+		if (enemy.update(dt))
+			m_isReady = true;
 	}
 
-	m_player.update(dt, m_gamePtr->getGameWindow());
-	moveEnemies(dt);
+//	moveEnemies(dt);
 
 	removeDestroyedObj();
 	m_scoreHandler.update();

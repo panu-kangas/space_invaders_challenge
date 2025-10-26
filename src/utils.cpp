@@ -1,7 +1,10 @@
 #include "utils.hpp"
 #include "Constants.hpp"
+#include <random>
 
-bool checkSpriteCollision(const sf::Sprite& sprite1, const sf::Sprite& sprite2) {
+
+bool checkSpriteCollision(const sf::Sprite& sprite1, const sf::Sprite& sprite2) 
+{
     sf::FloatRect rect1 = sprite1.getGlobalBounds();
     sf::FloatRect rect2 = sprite2.getGlobalBounds();
 
@@ -47,7 +50,7 @@ void drawHeaderText(sf::Font& font, sf::RenderWindow& window, std::string str)
 	window.draw(text);
 }
 
-void drawCenteredText(sf::Font& font, sf::RenderWindow& window, std::string str)
+void drawCenteredText(sf::Font& font, sf::RenderWindow& window, std::string str, float offset)
 {
 	sf::Text text(font, str);
 
@@ -55,8 +58,30 @@ void drawCenteredText(sf::Font& font, sf::RenderWindow& window, std::string str)
 	text.setCharacterSize(RegularTextSize);
 
 	float textX = ScreenWidth / 2 - text.getLocalBounds().size.x / 2;
-	float textY = ScreenHeight / 2 - text.getLocalBounds().size.y / 2;
+	float textY = ScreenHeight / 2 - text.getLocalBounds().size.y / 2 + offset;
 	text.setPosition({textX, textY});
 
 	window.draw(text);
+}
+
+void drawLowText(sf::Font& font, sf::RenderWindow& window, std::string str)
+{
+	sf::Text text(font, str);
+
+	text.setFillColor(sf::Color::White);
+	text.setCharacterSize(RegularTextSize - 10.f);
+
+	float textX = ScreenWidth / 2 - text.getLocalBounds().size.x / 2;
+	float textY = ScreenHeight * 0.8;
+	text.setPosition({textX, textY});
+
+	window.draw(text);
+}
+
+float randomFloat(float min, float max)
+{
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    std::uniform_real_distribution<float> distrib(min, max);
+    return distrib(gen);
 }

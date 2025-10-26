@@ -30,15 +30,6 @@ void EndState::render(sf::RenderWindow& window)
 	
 	drawHeaderText(font, window, "Game Over");
 	drawCenteredText(font, window, "Your Score is:");
+	drawCenteredText(font, window, m_scoreStr, 50.f);
 
-	sf::Text scoreText(font, m_scoreStr);
-
-	scoreText.setFillColor(sf::Color::White);
-	scoreText.setCharacterSize(RegularTextSize);
-
-	float scoreTextX = ScreenWidth / 2 - scoreText.getLocalBounds().size.x / 2;
-	float scoreTextY = ScreenHeight / 2 - scoreText.getLocalBounds().size.y / 2 + 50.f;
-	scoreText.setPosition({scoreTextX, scoreTextY});
-
-	window.draw(scoreText);
 }
