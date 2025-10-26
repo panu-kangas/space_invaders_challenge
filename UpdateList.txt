@@ -1,0 +1,8 @@
+UPDATES:
+
+- Made game screen bugger (1000 x 800)
+
+
+NEW FEATURES:
+
+
