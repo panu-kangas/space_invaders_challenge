@@ -3,22 +3,28 @@
 #include <vector>
 #include "Projectile.hpp"
 
+class Game;
+
 class Player {
 public:
-    Player(float x, float y);
+    Player(Game* gamePtr, float x, float y);
 
     void update(float dt, sf::RenderWindow& window);
     void draw(sf::RenderWindow& window);
 
-    sf::RectangleShape& getShape() { return shape; };
+    sf::RectangleShape& getShape() { return m_shape; };
+	std::vector<Projectile>& getProjectileVec() { return m_projectiles; };
 
 private:
-    sf::RectangleShape shape;
-    float speed = 300.0f;
 
-    std::vector<Projectile> projectiles;
-    float shootCooldown = 0.3f;
-    float timeSinceLastShot = 0.0f;
+	Game* m_gamePtr;
+
+    sf::RectangleShape m_shape;
+    float m_speed = 300.0f;
+
+    std::vector<Projectile> m_projectiles;
+    float m_shootCooldown = 0.3f;
+    float m_timeSinceLastShot = 0.0f;
 
     void shoot();
 };

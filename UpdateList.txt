@@ -5,4 +5,6 @@ UPDATES:
 
 NEW FEATURES:
 
-
+- Added Score system for player
+- Added Score board to dislay player Score
+- Added collision handling for enemies & projectiles

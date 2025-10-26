@@ -9,6 +9,9 @@ Enemy::Enemy(float x, float y)
 
 void Enemy::update(float dt) 
 {
+	if (m_isDead)
+		return ;
+	
 	sf::Vector2f direction {speed, 0};
 	shape.move(direction * dt);
 }
@@ -16,5 +19,8 @@ void Enemy::update(float dt)
 
 void Enemy::draw(sf::RenderWindow& window) 
 {
+	if (m_isDead)
+		return ;
+
 	window.draw(shape);
 }
