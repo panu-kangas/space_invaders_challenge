@@ -25,11 +25,34 @@ Game::Game() :
 		std::cout << "Alien download failed!\nExiting program...\n";
 		exit(1);
 	}
+	if (!m_bgMusicBuf.loadFromFile("assets/bg_music.ogg")) 
+	{
+  		std::cout << "BG music download failed!\nExiting program...\n";
+		exit(1);
+	}
+	if (!m_shootBuf.loadFromFile("assets/shoot.wav")) 
+	{
+  		std::cout << "Shoot SFX download failed!\nExiting program...\n";
+		exit(1);
+	}
+	if (!m_alienBuf.loadFromFile("assets/enemy_hit.ogg")) 
+	{
+  		std::cout << "Enemy hit SFX download failed!\nExiting program...\n";
+		exit(1);
+	}
 
 	m_curStatePtr = std::make_unique<StartState>(this);
 
 	m_bgShape.setSize({ScreenWidth, ScreenHeight});
 	m_bgShape.setTexture(&m_bgTexture);
+
+	m_bgSoundPtr = std::make_unique<sf::Sound>(m_bgMusicBuf);
+	m_shootSound = std::make_unique<sf::Sound>(m_shootBuf);
+	m_alienSound = std::make_unique<sf::Sound>(m_alienBuf);
+
+	m_shootSound->setVolume(50.f);
+
+	m_bgSoundPtr->play();
 }
 
 void Game::run()

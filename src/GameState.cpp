@@ -49,6 +49,7 @@ void GameState::removeDestroyedObj()
 			m_scoreHandler.addScore(1);
 			std::swap(m_enemies[i], m_enemies.back());
             m_enemies.pop_back();
+			m_gamePtr->playAlienSound();
             continue;
 		}
 		i++;

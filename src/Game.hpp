@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <memory>
 
 #include "Player.hpp"
@@ -31,6 +32,9 @@ public:
 	sf::RenderWindow& getGameWindow() { return m_window; };
 	sf::Texture& getEnemyText() { return m_alienTexture; };
 
+	void playShootSound() { m_shootSound->play(); };
+	void playAlienSound() { m_alienSound->play(); };
+
 private:
 
     sf::RenderWindow m_window;
@@ -45,5 +49,14 @@ private:
 	sf::Texture m_alienTexture;
 	sf::Texture m_bgTexture;
 	sf::RectangleShape m_bgShape;
+
+	sf::SoundBuffer m_bgMusicBuf;
+	sf::SoundBuffer m_shootBuf;
+	sf::SoundBuffer m_alienBuf;
+
+	std::unique_ptr<sf::Sound> m_bgSoundPtr;
+	std::unique_ptr<sf::Sound> m_shootSound;
+	std::unique_ptr<sf::Sound> m_alienSound;
+
 
 };

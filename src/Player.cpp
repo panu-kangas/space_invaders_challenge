@@ -22,6 +22,7 @@ void Player::shoot()
     pos.y -= 10.0f;
 
 	m_projectiles.push_back(std::make_unique<Projectile>(m_gamePtr, m_enemyVec, pos));
+	m_gamePtr->playShootSound();
 
 }
 
