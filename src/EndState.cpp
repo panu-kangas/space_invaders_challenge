@@ -31,5 +31,5 @@ void EndState::render(sf::RenderWindow& window)
 	drawHeaderText(font, window, "Game Over");
 	drawCenteredText(font, window, "Your Score is:");
 	drawCenteredText(font, window, m_scoreStr, 50.f);
-
+	drawLowText(font, window, "Press Enter to play again");
 }

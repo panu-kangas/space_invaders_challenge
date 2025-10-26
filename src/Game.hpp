@@ -7,6 +7,7 @@
 #include "Enemy.hpp"
 #include "ScoreHandler.hpp"
 #include "IGameState.hpp"
+#include "ControlBox.hpp"
 
 enum eGameState
 {
@@ -38,4 +39,6 @@ private:
     std::unique_ptr<IGameState> m_curStatePtr;
 	eGameState m_state{START};
 	
+	ControlBox m_controlBox;
+
 };

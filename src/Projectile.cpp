@@ -3,8 +3,7 @@
 #include "Game.hpp"
 #include "utils.hpp"
 
-Projectile::Projectile(Game* gamePtr, std::vector<Enemy>& enemyVec, sf::Vector2f position, float speed) : 
-	m_speed(speed),
+Projectile::Projectile(Game* gamePtr, std::vector<Enemy>& enemyVec, sf::Vector2f position) : 
 	m_enemyVec(enemyVec)
 {
     m_shape.setSize({5.0f, 15.0f});

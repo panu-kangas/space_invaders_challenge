@@ -108,10 +108,10 @@ void GameState::render(sf::RenderWindow& window)
 	if (m_isReady)
 		return ;
 	
-	m_player.draw(window);
-
 	for (auto& enemy : m_enemies)
 		enemy.draw(window);
+
+	m_player.draw(window);
 
 	m_scoreHandler.draw(window);
 }

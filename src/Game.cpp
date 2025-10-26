@@ -8,7 +8,8 @@
 #include <iostream>
 
 Game::Game() :
-	m_window(sf::VideoMode({ScreenWidth, ScreenHeight}), "Space Invaders - game by Panu Kangas")
+	m_window(sf::VideoMode({ScreenWidth, ScreenHeight}), "Space Invaders - game by Panu Kangas"),
+	m_controlBox(this)
 {
 	if (!m_mainFont.openFromFile("assets/mainFont.ttf"))
 	{
@@ -88,6 +89,8 @@ void Game::render()
 	m_window.clear(sf::Color::Black);
 
 	m_curStatePtr->render(m_window);
+
+//	m_controlBox.draw(m_window);
 
 	m_window.display();
 }

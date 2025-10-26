@@ -19,7 +19,13 @@ void EnemySpawner::update()
 	float enemyY = 0 - EnemyHeight;
 
 	m_enemyVec.push_back({enemyX, enemyY});
+	m_spawnCounter++;
 
 	m_spawnClock.restart();
+
+	if (m_spawnCounter % 5 == 0 && m_spawnCooldown > 0.2f)
+	{
+		m_spawnCooldown -= 0.2f;
+	}
 
 }

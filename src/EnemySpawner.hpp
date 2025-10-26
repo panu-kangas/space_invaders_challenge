@@ -18,6 +18,7 @@ private:
 
 	std::vector<Enemy>& m_enemyVec;
 	sf::Clock m_spawnClock;
-	float m_spawnCooldown = EnemySpawnCooldown;
+	float m_spawnCooldown = EnemySpawnCooldownStart;
+	int m_spawnCounter = 0;
 
 };

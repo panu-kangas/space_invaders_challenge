@@ -10,3 +10,5 @@ NEW FEATURES:
 - Added collision handling for enemies & projectiles
 - Added new Game State system and refactored code based on that
 - Added lose condition; if enemy reaches bottom of the screen, game is over
+- Added ability system; they can help player defeat aliens.
+- Added Speed Boost and Power Shot abilities
