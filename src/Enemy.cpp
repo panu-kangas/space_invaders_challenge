@@ -12,7 +12,7 @@ void Enemy::update(float dt)
 	if (m_isDead)
 		return ;
 	
-	sf::Vector2f direction {speed, 0};
+	sf::Vector2f direction {m_speed, 0};
 	shape.move(direction * dt);
 }
 

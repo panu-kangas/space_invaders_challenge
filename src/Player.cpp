@@ -1,7 +1,9 @@
 #include "Player.hpp"
+#include "Enemy.hpp"
 #include "Game.hpp"
 
-Player::Player(Game* gamePtr, float x, float y)
+Player::Player(Game* gamePtr, std::vector<Enemy>& enemyVec, float x, float y) :
+	m_enemyVec(enemyVec)
 {
 	m_gamePtr = gamePtr;
 
@@ -31,7 +33,7 @@ void Player::update(float dt, sf::RenderWindow& window)
     }
 
     for (auto& p : m_projectiles)
-        p.update(dt);
+        p->update(dt);
 
 }
 
@@ -39,7 +41,7 @@ void Player::draw(sf::RenderWindow& window)
 {
     window.draw(m_shape);
     for (auto& p : m_projectiles)
-        p.draw(window);
+        p->draw(window);
 }
 
 void Player::shoot()
@@ -47,5 +49,5 @@ void Player::shoot()
     sf::Vector2f pos = m_shape.getPosition();
     pos.x += m_shape.getSize().x / 2.0f - 2.5f;
     pos.y -= 10.0f;
-    m_projectiles.emplace_back(m_gamePtr, pos);
+	m_projectiles.push_back(std::make_unique<Projectile>(m_gamePtr, m_enemyVec, pos));
 }

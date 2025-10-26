@@ -3,8 +3,9 @@
 #include "Game.hpp"
 #include "utils.hpp"
 
-Projectile::Projectile(Game* gamePtr, sf::Vector2f position, float speed)
-    : m_speed(speed)
+Projectile::Projectile(Game* gamePtr, std::vector<Enemy>& enemyVec, sf::Vector2f position, float speed) : 
+	m_speed(speed),
+	m_enemyVec(enemyVec)
 {
     m_shape.setSize({5.0f, 15.0f});
     m_shape.setFillColor(sf::Color::Red);
@@ -20,8 +21,7 @@ void Projectile::update(float dt)
 
     m_shape.move({0.0f, -m_speed * dt});
 
-	std::vector<Enemy>& enemies = m_gamePtr->getEnemyVec();
-	for (auto& enemy : enemies)
+	for (auto& enemy : m_enemyVec)
 	{
 		if (checkRectCollision(m_shape, enemy.getShape()))
 		{

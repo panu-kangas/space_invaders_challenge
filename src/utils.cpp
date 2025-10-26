@@ -1,4 +1,5 @@
 #include "utils.hpp"
+#include "Constants.hpp"
 
 bool checkSpriteCollision(const sf::Sprite& sprite1, const sf::Sprite& sprite2) {
     sf::FloatRect rect1 = sprite1.getGlobalBounds();
@@ -29,4 +30,33 @@ bool checkRectCollision(const sf::RectangleShape& sprite1, const sf::RectangleSh
              pos2.x + size2.x < pos1.x ||
              pos1.y + size1.y < pos2.y ||
              pos2.y + size2.y < pos1.y);
+}
+
+
+void drawHeaderText(sf::Font& font, sf::RenderWindow& window, std::string str)
+{
+	sf::Text text(font, str);
+
+	text.setFillColor(sf::Color::Red);
+	text.setCharacterSize(HeaderTextSize);
+
+	float textX = ScreenWidth / 2 - text.getLocalBounds().size.x / 2;
+	float textY = 40.f; 
+	text.setPosition({textX, textY});
+
+	window.draw(text);
+}
+
+void drawCenteredText(sf::Font& font, sf::RenderWindow& window, std::string str)
+{
+	sf::Text text(font, str);
+
+	text.setFillColor(sf::Color::White);
+	text.setCharacterSize(RegularTextSize);
+
+	float textX = ScreenWidth / 2 - text.getLocalBounds().size.x / 2;
+	float textY = ScreenHeight / 2 - text.getLocalBounds().size.y / 2;
+	text.setPosition({textX, textY});
+
+	window.draw(text);
 }

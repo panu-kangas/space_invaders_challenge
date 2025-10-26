@@ -8,3 +8,4 @@ NEW FEATURES:
 - Added Score system for player
 - Added Score board to dislay player Score
 - Added collision handling for enemies & projectiles
+- Added new Game State system and refactored code based on that

@@ -18,6 +18,8 @@ public:
 	void update();
 	void draw(sf::RenderWindow& window);
 
+	int getScore() { return m_score; };
+
 
 private:
 
