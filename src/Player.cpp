@@ -44,11 +44,11 @@ void Player::update(float dt, sf::RenderWindow& window)
         m_shape.move({m_speed * dt, 0});
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::V))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
 		m_abilityHandlerPtr->activateAbility(SPEED_BOOST);
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::B))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
 	{
 		m_abilityHandlerPtr->activateAbility(POWER_SHOT);
 	}
@@ -59,7 +59,7 @@ void Player::update(float dt, sf::RenderWindow& window)
         m_shape.setPosition({window.getSize().x - m_shape.getSize().x, m_shape.getPosition().y});
 
     m_timeSinceLastShot += dt;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && m_timeSinceLastShot >= m_shootCooldown) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && m_timeSinceLastShot >= m_shootCooldown) {
         shoot();
         m_timeSinceLastShot = 0.0f;
     }

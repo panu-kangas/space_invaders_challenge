@@ -50,12 +50,19 @@ void drawHeaderText(sf::Font& font, sf::RenderWindow& window, std::string str)
 	window.draw(text);
 }
 
-void drawCenteredText(sf::Font& font, sf::RenderWindow& window, std::string str, float offset)
+void drawCenteredText(sf::Font& font, sf::RenderWindow& window, std::string str, float offset, bool smallText)
 {
 	sf::Text text(font, str);
 
 	text.setFillColor(sf::Color::White);
-	text.setCharacterSize(RegularTextSize);
+
+	float size = 0.f;
+	if (!smallText)
+		size = RegularTextSize;
+	else
+		size = RegularTextSize - 10.f;
+
+	text.setCharacterSize(size);
 
 	float textX = ScreenWidth / 2 - text.getLocalBounds().size.x / 2;
 	float textY = ScreenHeight / 2 - text.getLocalBounds().size.y / 2 + offset;
@@ -68,11 +75,11 @@ void drawLowText(sf::Font& font, sf::RenderWindow& window, std::string str)
 {
 	sf::Text text(font, str);
 
-	text.setFillColor(sf::Color::White);
-	text.setCharacterSize(RegularTextSize - 10.f);
+	text.setFillColor(sf::Color::Red);
+	text.setCharacterSize(RegularTextSize - 7.f);
 
 	float textX = ScreenWidth / 2 - text.getLocalBounds().size.x / 2;
-	float textY = ScreenHeight * 0.8;
+	float textY = ScreenHeight * 0.9;
 	text.setPosition({textX, textY});
 
 	window.draw(text);

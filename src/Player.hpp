@@ -35,7 +35,7 @@ private:
     sf::RectangleShape m_shape;
 
     float m_speed = PlayerInitSpeed;
-    float m_shootCooldown = 0.3f;
+    float m_shootCooldown = 0.4f;
     float m_timeSinceLastShot = 0.0f;
 
 };

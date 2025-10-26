@@ -7,12 +7,12 @@ AbilityHandler::AbilityHandler(Player& player, sf::Font& font) :
 	m_powerShotAbility(player),
 	m_font(font),
 	m_speedText(m_font, "Speed boost"),
-	m_speedCtrlText(m_font, "Press V"),
+	m_speedCtrlText(m_font, "Press A"),
 	m_powerShotText(m_font, "Power Shot"),
-	m_powerShotCtrlText(m_font, "Press B")
+	m_powerShotCtrlText(m_font, "Press S")
 {
 	// Set BG
-	m_box.setSize({400.f, 100.f});
+	m_box.setSize({330.f, 100.f});
 	float boxSizeX = m_box.getSize().x;
 	m_box.setPosition({ScreenWidth - boxSizeX, 0});
 	m_box.setOutlineThickness(2.f);

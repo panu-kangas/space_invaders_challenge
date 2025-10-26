@@ -14,7 +14,7 @@ public:
 
 private:
 
-	void spawnNewEnemy();	
+	void updateSpawnCooldown();
 
 	std::vector<Enemy>& m_enemyVec;
 	sf::Clock m_spawnClock;

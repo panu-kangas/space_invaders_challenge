@@ -8,6 +8,21 @@ EnemySpawner::EnemySpawner(std::vector<Enemy>& enemyVec):
 	m_spawnClock.restart();
 }
 
+void EnemySpawner::updateSpawnCooldown()
+{
+	if (m_spawnCounter < 10)
+		m_spawnCooldown = EnemySpawnCooldownStart;
+	else if (m_spawnCounter < 20)
+		m_spawnCooldown = EnemySpawnCooldownStart - 0.3f;
+	else if (m_spawnCounter < 40)
+		m_spawnCooldown = EnemySpawnCooldownStart - 0.5f;
+	else if (m_spawnCounter < 60)
+		m_spawnCooldown = EnemySpawnCooldownStart - 0.8f;
+	else if (m_spawnCounter < 100)
+		m_spawnCooldown = EnemySpawnCooldownStart - 1.0f;
+
+}
+
 void EnemySpawner::update()
 {
 
@@ -23,9 +38,6 @@ void EnemySpawner::update()
 
 	m_spawnClock.restart();
 
-	if (m_spawnCounter % 5 == 0 && m_spawnCooldown > 0.2f)
-	{
-		m_spawnCooldown -= 0.2f;
-	}
+	updateSpawnCooldown();
 
 }
