@@ -20,6 +20,11 @@ Game::Game() :
 		std::cout << "Alien download failed!\nExiting program...\n";
 		exit(1);
 	}
+	if (!m_playerTexture.loadFromFile("assets/player_sprite.png"))
+	{
+		std::cout << "Alien download failed!\nExiting program...\n";
+		exit(1);
+	}
 	if (!m_bgTexture.loadFromFile("assets/background.png"))
 	{
 		std::cout << "Alien download failed!\nExiting program...\n";
@@ -35,7 +40,12 @@ Game::Game() :
   		std::cout << "Shoot SFX download failed!\nExiting program...\n";
 		exit(1);
 	}
-	if (!m_alienBuf.loadFromFile("assets/enemy_hit.ogg")) 
+	if (!m_powerShotBuf.loadFromFile("assets/power_shot.wav")) 
+	{
+  		std::cout << "Shoot SFX download failed!\nExiting program...\n";
+		exit(1);
+	}
+	if (!m_alienBuf.loadFromFile("assets/enemy_hit.mp3"))
 	{
   		std::cout << "Enemy hit SFX download failed!\nExiting program...\n";
 		exit(1);
@@ -48,11 +58,16 @@ Game::Game() :
 
 	m_bgSoundPtr = std::make_unique<sf::Sound>(m_bgMusicBuf);
 	m_shootSound = std::make_unique<sf::Sound>(m_shootBuf);
+	m_powerShotSound = std::make_unique<sf::Sound>(m_powerShotBuf);
 	m_alienSound = std::make_unique<sf::Sound>(m_alienBuf);
 
-	m_shootSound->setVolume(50.f);
+	m_shootSound->setVolume(10.f);
+	m_powerShotSound->setVolume(20.f);
+	m_alienSound->setVolume(5.f);
 
 	m_bgSoundPtr->play();
+
+	m_window.setFramerateLimit(120);
 }
 
 void Game::run()

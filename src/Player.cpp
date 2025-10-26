@@ -8,9 +8,10 @@ Player::Player(Game* gamePtr, std::vector<Enemy>& enemyVec, float x, float y) :
 {
 	m_gamePtr = gamePtr;
 
-    m_shape.setSize({50.0f, 20.0f});
+    m_shape.setSize({50.0f, 50.0f});
     m_shape.setFillColor(sf::Color::Green);
     m_shape.setPosition({x, y});
+	m_shape.setTexture(&gamePtr->getPlayerText());
 
 	m_abilityHandlerPtr = std::make_unique<AbilityHandler>(*this, gamePtr->getMainFont());
 }
@@ -22,6 +23,7 @@ void Player::shoot()
     pos.y -= 10.0f;
 
 	m_projectiles.push_back(std::make_unique<Projectile>(m_gamePtr, m_enemyVec, pos));
+
 	m_gamePtr->playShootSound();
 
 }
@@ -29,10 +31,12 @@ void Player::shoot()
 void Player::shootPowerShot()
 {
     sf::Vector2f pos = m_shape.getPosition();
-    pos.x += m_shape.getSize().x / 2.0f - 2.5f;
+    pos.x += m_shape.getSize().x / 2.0f - 15.f;
     pos.y -= 10.0f;
 
 	m_projectiles.push_back(std::make_unique<PowerShotBullet>(m_gamePtr, m_enemyVec, pos));
+
+	m_gamePtr->playPowerShotSound();
 
 }
 

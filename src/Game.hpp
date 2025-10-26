@@ -31,8 +31,10 @@ public:
 	sf::Font& getMainFont() { return m_mainFont; };
 	sf::RenderWindow& getGameWindow() { return m_window; };
 	sf::Texture& getEnemyText() { return m_alienTexture; };
+	sf::Texture& getPlayerText() { return m_playerTexture; };
 
 	void playShootSound() { m_shootSound->play(); };
+	void playPowerShotSound() { m_powerShotSound->play(); };
 	void playAlienSound() { m_alienSound->play(); };
 
 private:
@@ -46,16 +48,19 @@ private:
 	
 //	ControlBox m_controlBox;
 
+	sf::Texture m_playerTexture;
 	sf::Texture m_alienTexture;
 	sf::Texture m_bgTexture;
 	sf::RectangleShape m_bgShape;
 
 	sf::SoundBuffer m_bgMusicBuf;
 	sf::SoundBuffer m_shootBuf;
+	sf::SoundBuffer m_powerShotBuf;
 	sf::SoundBuffer m_alienBuf;
 
 	std::unique_ptr<sf::Sound> m_bgSoundPtr;
 	std::unique_ptr<sf::Sound> m_shootSound;
+	std::unique_ptr<sf::Sound> m_powerShotSound;
 	std::unique_ptr<sf::Sound> m_alienSound;
 
 
