@@ -10,7 +10,7 @@ I was also the facilitator of the event 👾
 
 ## Video of my version after 10 hours
 
-![Demo of the project](video/space_invaders_base_gif.gif)
+![Demo of the project](video/space_invaders_challenge_vid.gif)
 
 ## Features of my game
 
