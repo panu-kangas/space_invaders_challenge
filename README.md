@@ -1,16 +1,25 @@
 # 👾 Space Invaders Code Challenge 👾
 
-This is the base code for the Space Invaders Code Challenge, where participants will refine a small bare bones game in just 10-12 hours.  
+I took part in a 10 hour coding challenge, where I first got a base code for a simple version of the classic Space Invaders game, and then I had 10 hours to turn it into something cool.  
+
+I was also the facilitator of the event 👾
 
 ## Video of the base game
 
 ![Demo of the project](video/space_invaders_base_gif.gif)
 
-## Features of base game
+## Video of my version after 10 hours
 
-- Basic window handling and game loop setup using C++ with SFML  
-- Movable Player object (green rectangle) that can also shoot lazer beams  
-- Automatically moving group of Enemies (red rectangles) that gradually progress their way down the screen  
+![Demo of the project](video/space_invaders_base_gif.gif)
+
+## Features of my game
+
+On top of the base game features I added:
+
+- Game state system that allowed me to display starting screen, the game itself and an ending screen smoothly.  
+- Score system for the player.  
+- I changed the moving and spawning pattern of the aliens, so that they charge towards the player (bottom of screen)
+- Added a ability system, so that the player has extra abilities (Speed Boost and Power Shot) to fight against the aliens.
 
 ## Setup information
 
@@ -44,5 +53,3 @@ This is the base code for the Space Invaders Code Challenge, where participants 
 
     ```./build/bin/space_invaders```
 
-5. **IMPORTANT NOTE:**  
-   If you add new source files to the program, remeber to first do ```cmake -B build```, as it prepares the build information and thus updates needed source files.
