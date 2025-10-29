@@ -4,9 +4,9 @@ I took part in a 10 hour coding challenge, where I first got a base code for a s
 
 I was also the facilitator of the event 👾
 
-## Check out the video of my progress after 10 hours of coding
+## Gameplay video (click the image to view in YouTube)
 
-[![Watch the Space Invaders demo](https://img.youtube.com/vi/lC5ufEy9nk8/0.jpg)](https://youtu.be/lC5ufEy9nk8)
+[![Watch the Space Invaders demo](https://img.youtube.com/vi/lC5ufEy9nk8/maxresdefault.jpg)](https://youtu.be/lC5ufEy9nk8)
 
 ## Features of my game
 
