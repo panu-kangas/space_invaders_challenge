@@ -49,3 +49,17 @@ On top of the base game features I added:
 
     ```./build/bin/space_invaders```
 
+
+## Credits
+
+🎵 **Music**  
+💖 Soundtrack by [alkakrab](https://alkakrab.itch.io)
+
+🔊 **SFX**  
+👽 Alien sounds by [Atelier Magicae](https://ateliermagicae.itch.io)  
+🚀 Space ship sounds by [lentikula](https://lentikula.itch.io)
+
+🎨 **Sprites**  
+👾 Aliens & background by [Comp-3 Interactive](https://comp3interactive.itch.io)  
+🛸 Spaceship by [Ravenmore](https://ravenmore.itch.io)
+
